@@ -1,0 +1,81 @@
+<script>
+	export let segment;
+</script>
+
+<style>
+	.nav {
+		border-bottom: 1px solig rgba(255, 0, 121, 0.2);
+		font-weight: 300;
+		background-color: #fafbfc;
+		color: #191a22;
+	}
+
+	.nav-container{
+		display: grid;
+		grid-template-columns: minmax(auto, 1024px);
+		justify-content: center;
+		align-items: center;
+	}
+
+	.nav-content{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	ul::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	li {
+		display: block;
+		float: left;
+	}
+
+	[aria-current] {
+		position: relative;
+		display: inline-block;
+	}
+
+	[aria-current]::after {
+		position: absolute;
+		content: '';
+		width: calc(100% - 1em);
+		height: 2px;
+		background-color: rgb(255,62,0);
+		display: block;
+		bottom: -1px;
+	}
+
+	a {
+		text-decoration: none;
+		padding: 1em 1em 1em 0;
+		display: block;
+		font-size: 14px;
+		font-weight: 300;
+		transition: all 0.3s ease-in-out 0s;
+		color: rgba();
+	}
+</style>
+
+<nav class="nav">
+	<div class="nav-container">
+		<div class="nav-content">
+			<div class="nav-social">
+				<ul>
+					<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">Home</a></li>
+					<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">About</a></li>
+					<li><a aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">Contact</a></li>
+					<li><a aria-current="{segment === 'general' ? 'page' : undefined}" href="general">General</a></li>
+					<li><a aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
